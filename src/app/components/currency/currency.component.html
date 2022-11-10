@@ -1,0 +1,49 @@
+<mat-card class="currency-card showborder">
+    <div class="flex-row">
+        <div class="max-w-25-p flex-row">
+            <img class="currency-avatar-image" src="assets/bitcoin-transparent.png" alt="Bitcoin Image">
+        </div>
+        <div class="flex-column flex-grow-2 p-10-l">
+            <div class="flex-grow">
+                <span class="currency-card-name">
+                    {{currency.name | uppercase}}
+                </span>
+            </div>
+            <div class="flex-row flex-grow flex-end">
+                <div>
+                    <ng-container *ngIf="showPrice" [ngTemplateOutlet]="PriceValue"></ng-container>
+                </div>
+                <div>
+                    <ng-container *ngIf="showAction && isFavorite" [ngTemplateOutlet]="RemoveFromFavorite">
+                    </ng-container>
+                    <ng-container *ngIf="showAction && !isFavorite" [ngTemplateOutlet]="AddToFavorite"></ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>
+
+<ng-template #PriceValue>
+    <span *ngIf="currency.price_usd else NoValue" class="currency-card-price">
+        {{currency.price_usd | currency:'USD'}}
+    </span>
+</ng-template>
+<ng-template #NoValue>
+    <span class="currency-card-price">
+        {{'No Info'}}
+    </span>
+</ng-template>
+<ng-template #AddToFavorite>
+    <button mat-icon-button (click)="addToFavorite()">
+        <mat-icon class="favorite-icon-action">
+            favorite
+        </mat-icon>
+    </button>
+</ng-template>
+<ng-template #RemoveFromFavorite>
+    <button mat-icon-button (click)="removeFromFavorite()">
+        <mat-icon>
+            delete
+        </mat-icon>
+    </button>
+</ng-template>

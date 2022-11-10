@@ -1,0 +1,6 @@
+<div class="currency-list">
+    <ng-container *ngFor="let currency of currencies">
+        <app-currency [currency]="currency" [isFavorite]="isFavoriteList" [showAction]="showAction"
+            [showPrice]="showPrice"></app-currency>
+    </ng-container>
+</div>

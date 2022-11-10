@@ -1,0 +1,15 @@
+<!-- Favorites List Showing RemoveFromFavorites -->
+<app-currencies-list [currencies]="favorites$ | async" [showAction]="true" [isFavoriteList]="true">
+</app-currencies-list>
+<ng-container *ngIf="(favorites$ | async)?.length<=0">
+    <div class="no-content-page flex-column flex-center">
+        <div class="flex-row flex-center m-20-b">
+            <span class="no-content-text">
+                {{'THERE ARE NO FAVORITES TO MANAGE'}}
+            </span>
+        </div>
+        <div class="flex-row flex-center">
+            <button mat-raised-button color="primary" [routerLink]="['/home']">Back to Homepage</button>
+        </div>
+    </div>
+</ng-container>

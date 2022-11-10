@@ -1,0 +1,13 @@
+<mat-toolbar class="currency-toolbar m-20-b" color="primary">
+    <button mat-icon-button class="currency-icon" aria-label="Home Page" [routerLink]="['/home']">
+        <mat-icon>home</mat-icon>
+    </button>
+    <span>{{title}}</span>
+    <span class="currency-spacer"></span>
+    <button mat-icon-button class="currency-icon favorite-icon" aria-label="Favorites Page"
+        [routerLink]="['/favorites']">
+        <mat-icon>favorite</mat-icon>
+    </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<!-- TODO: Implement AppLoader to show loading page while waiting for service reponse -->

@@ -1,0 +1,11 @@
+<ng-container *ngIf="!(loading$ | async) else Loading">
+    <app-search-form></app-search-form>
+    <!-- Favorites List Showing Value -->
+    <app-currencies-list [currencies]="favorites$ | async" [showPrice]="true"></app-currencies-list>
+    <!-- NON Favorites List Showing AddToFavorite -->
+    <app-currencies-list [currencies]="currencies$ | async" [showAction]="true"></app-currencies-list>
+</ng-container>
+
+<ng-template #Loading>
+    LOADING ...
+</ng-template>

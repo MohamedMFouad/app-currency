@@ -1,0 +1,9 @@
+<form class="flex-column p-10">
+    <mat-form-field>
+        <mat-label>{{'SEARCH'}}</mat-label>
+        <input [formControl]="searchControl" matInput #searchInput autocomplete="off">
+        <button mat-icon-button *ngIf="searchInput.value" matSuffix aria-label="Clear" (click)="clearSearch()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</form>
